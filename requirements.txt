@@ -1,0 +1,12 @@
+# ASR
+openai-whisper
+
+# Audio recording
+sounddevice
+soundfile
+numpy
+
+# For future: LLM feedback
+# groq
+gradio
+ollama
