@@ -1,0 +1,3 @@
+Hi, um, thanks for meeting with me today. I'm a junior in computer science and I'm really interested in, like, how your team builds ML systems at scale. I've been doing some coursework on NLP and a small project on sentiment analysis, but I want to understand more about what day-to-day work looks like here.
+
+I guess my main question is what skills you think matter most for someone trying to break in — you know, beyond Leetcode and class projects. I'm also curious whether there are any research reading groups or intern openings I should keep an eye on. Sorry if that was a lot at once.
