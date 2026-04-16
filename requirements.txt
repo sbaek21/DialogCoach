@@ -1,0 +1,13 @@
+# ASR
+faster-whisper
+
+# Audio recording
+sounddevice
+soundfile
+numpy
+
+# LLM
+ollama
+
+# UI (possibly)
+# gradio

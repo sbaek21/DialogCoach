@@ -1,0 +1,334 @@
+{
+  "transcript": "In a high-stakes project during my internship, I had to completely redesign a back-end system  within 2 weeks.  I prioritized tasks daily, coordinated with my team, under-tight the plans and delivered  a solution that involved system performance significantly.",
+  "segments": [
+    {
+      "start": 1.200000000000001,
+      "end": 7.46,
+      "text": " In a high-stakes project during my internship, I had to completely redesign a back-end system",
+      "words": [
+        {
+          "word": " In",
+          "start": 1.200000000000001,
+          "end": 1.92,
+          "prob": 0.7150794267654419
+        },
+        {
+          "word": " a",
+          "start": 1.92,
+          "end": 2.1,
+          "prob": 0.9668752551078796
+        },
+        {
+          "word": " high",
+          "start": 2.1,
+          "end": 2.28,
+          "prob": 0.9865569472312927
+        },
+        {
+          "word": "-stakes",
+          "start": 2.28,
+          "end": 2.72,
+          "prob": 0.7064092457294464
+        },
+        {
+          "word": " project",
+          "start": 2.72,
+          "end": 3.18,
+          "prob": 0.9948241710662842
+        },
+        {
+          "word": " during",
+          "start": 3.18,
+          "end": 3.54,
+          "prob": 0.9208113551139832
+        },
+        {
+          "word": " my",
+          "start": 3.54,
+          "end": 3.74,
+          "prob": 0.9761427044868469
+        },
+        {
+          "word": " internship,",
+          "start": 3.74,
+          "end": 4.2,
+          "prob": 0.998670220375061
+        },
+        {
+          "word": " I",
+          "start": 4.6,
+          "end": 4.72,
+          "prob": 0.9869269728660583
+        },
+        {
+          "word": " had",
+          "start": 4.72,
+          "end": 4.9,
+          "prob": 0.9852827787399292
+        },
+        {
+          "word": " to",
+          "start": 4.9,
+          "end": 5.06,
+          "prob": 0.9975584745407104
+        },
+        {
+          "word": " completely",
+          "start": 5.06,
+          "end": 5.6,
+          "prob": 0.9849932193756104
+        },
+        {
+          "word": " redesign",
+          "start": 5.6,
+          "end": 6.3,
+          "prob": 0.7491617202758789
+        },
+        {
+          "word": " a",
+          "start": 6.3,
+          "end": 6.7,
+          "prob": 0.9632552862167358
+        },
+        {
+          "word": " back",
+          "start": 6.7,
+          "end": 6.94,
+          "prob": 0.2821520268917084
+        },
+        {
+          "word": "-end",
+          "start": 6.94,
+          "end": 7.12,
+          "prob": 0.9015946388244629
+        },
+        {
+          "word": " system",
+          "start": 7.12,
+          "end": 7.46,
+          "prob": 0.9931944608688354
+        }
+      ]
+    },
+    {
+      "start": 7.46,
+      "end": 8.44,
+      "text": " within 2x.",
+      "words": [
+        {
+          "word": " within",
+          "start": 7.46,
+          "end": 7.78,
+          "prob": 0.566105842590332
+        },
+        {
+          "word": " 2 weeks.",
+          "start": 7.78,
+          "end": 8.44,
+          "prob": 0.6082052290439606
+        }
+      ]
+    },
+    {
+      "start": 8.72,
+      "end": 14.5,
+      "text": " I prioritized tasks daily, coordinated with my team, under-tight the plans and delivered",
+      "words": [
+        {
+          "word": " I",
+          "start": 8.72,
+          "end": 8.82,
+          "prob": 0.9918258190155029
+        },
+        {
+          "word": " prioritized",
+          "start": 8.82,
+          "end": 9.84,
+          "prob": 0.966365396976471
+        },
+        {
+          "word": " tasks",
+          "start": 9.84,
+          "end": 10.14,
+          "prob": 0.8473369479179382
+        },
+        {
+          "word": " daily,",
+          "start": 10.14,
+          "end": 10.58,
+          "prob": 0.9933317303657532
+        },
+        {
+          "word": " coordinated",
+          "start": 11.0,
+          "end": 11.58,
+          "prob": 0.9707760810852051
+        },
+        {
+          "word": " with",
+          "start": 11.58,
+          "end": 12.02,
+          "prob": 0.963361918926239
+        },
+        {
+          "word": " my",
+          "start": 12.02,
+          "end": 12.28,
+          "prob": 0.9979212880134583
+        },
+        {
+          "word": " team,",
+          "start": 12.28,
+          "end": 12.5,
+          "prob": 0.9957471489906311
+        },
+        {
+          "word": " under",
+          "start": 12.66,
+          "end": 12.84,
+          "prob": 0.7094739675521851
+        },
+        {
+          "word": "-tight",
+          "start": 12.84,
+          "end": 13.1,
+          "prob": 0.57916609197855
+        },
+        {
+          "word": " the",
+          "start": 13.1,
+          "end": 13.38,
+          "prob": 0.43371936678886414
+        },
+        {
+          "word": " plans",
+          "start": 13.38,
+          "end": 13.72,
+          "prob": 0.3339824974536896
+        },
+        {
+          "word": " and",
+          "start": 13.72,
+          "end": 14.08,
+          "prob": 0.540672242641449
+        },
+        {
+          "word": " delivered",
+          "start": 14.08,
+          "end": 14.5,
+          "prob": 0.6558428406715393
+        }
+      ]
+    },
+    {
+      "start": 14.5,
+      "end": 17.94,
+      "text": " a solution that involved system performance significantly.",
+      "words": [
+        {
+          "word": " a",
+          "start": 14.5,
+          "end": 14.8,
+          "prob": 0.961235523223877
+        },
+        {
+          "word": " solution",
+          "start": 14.8,
+          "end": 15.24,
+          "prob": 0.9987035989761353
+        },
+        {
+          "word": " that",
+          "start": 15.24,
+          "end": 15.52,
+          "prob": 0.9901973009109497
+        },
+        {
+          "word": " involved",
+          "start": 15.52,
+          "end": 15.9,
+          "prob": 0.5962638854980469
+        },
+        {
+          "word": " system",
+          "start": 15.9,
+          "end": 16.52,
+          "prob": 0.7467458844184875
+        },
+        {
+          "word": " performance",
+          "start": 16.52,
+          "end": 17.16,
+          "prob": 0.9896842241287231
+        },
+        {
+          "word": " significantly.",
+          "start": 17.16,
+          "end": 17.94,
+          "prob": 0.9954031705856323
+        }
+      ]
+    }
+  ],
+  "analysis": {
+    "speech_rate": {
+      "num_words": 40,
+      "duration_sec": 16.74,
+      "words_per_min_total": 143.37,
+      "words_per_min_speaking_only": 155.04
+    },
+    "pause_stats": {
+      "pause_count": 0,
+      "avg_pause_sec": 0,
+      "max_pause_sec": 0,
+      "pauses": []
+    },
+    "filler_stats": {
+      "filler_total": 0,
+      "filler_breakdown": {
+        "um": 0,
+        "uh": 0,
+        "like": 0,
+        "you know": 0,
+        "sort of": 0,
+        "kind of": 0,
+        "i mean": 0,
+        "ah": 0,
+        "erm": 0
+      }
+    },
+    "low_confidence": {
+      "word_count": 7,
+      "phrases": [
+        {
+          "text": " back",
+          "start": 6.7,
+          "end": 6.94,
+          "avg_prob": 0.282
+        },
+        {
+          "text": " within",
+          "start": 7.46,
+          "end": 7.78,
+          "avg_prob": 0.566
+        },
+        {
+          "text": "-tight  the  plans  and",
+          "start": 12.84,
+          "end": 14.08,
+          "avg_prob": 0.472
+        },
+        {
+          "text": " involved",
+          "start": 15.52,
+          "end": 15.9,
+          "avg_prob": 0.596
+        }
+      ]
+    },
+    "repetition_stats": {
+      "repetition_count": 0,
+      "repetitions": []
+    }
+  }
+}

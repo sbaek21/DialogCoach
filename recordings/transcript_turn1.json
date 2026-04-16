@@ -1,0 +1,279 @@
+{
+  "transcript": "My greatest strength is my ability to drive under high pressure situations.  For instance, during my internship, I successfully redesigned the backend system within two weeks,  which strengthened my time management and problem solving skills.",
+  "segments": [
+    {
+      "start": 4.440000000000002,
+      "end": 9.92,
+      "text": " My greatest strength is my ability to drive under high pressure situations.",
+      "words": [
+        {
+          "word": " My",
+          "start": 4.440000000000002,
+          "end": 5.2,
+          "prob": 0.6808862090110779
+        },
+        {
+          "word": " greatest",
+          "start": 5.2,
+          "end": 5.6,
+          "prob": 0.9885740280151367
+        },
+        {
+          "word": " strength",
+          "start": 5.6,
+          "end": 6.02,
+          "prob": 0.9714053869247437
+        },
+        {
+          "word": " is",
+          "start": 6.02,
+          "end": 6.34,
+          "prob": 0.9900760054588318
+        },
+        {
+          "word": " my",
+          "start": 6.34,
+          "end": 6.62,
+          "prob": 0.9837347269058228
+        },
+        {
+          "word": " ability",
+          "start": 6.62,
+          "end": 7.04,
+          "prob": 0.9981301426887512
+        },
+        {
+          "word": " to",
+          "start": 7.04,
+          "end": 7.34,
+          "prob": 0.9966773986816406
+        },
+        {
+          "word": " drive",
+          "start": 7.34,
+          "end": 7.66,
+          "prob": 0.9943348169326782
+        },
+        {
+          "word": " under",
+          "start": 7.66,
+          "end": 8.0,
+          "prob": 0.9775910377502441
+        },
+        {
+          "word": " high",
+          "start": 8.0,
+          "end": 8.38,
+          "prob": 0.975030779838562
+        },
+        {
+          "word": " pressure",
+          "start": 8.38,
+          "end": 8.92,
+          "prob": 0.88600754737854
+        },
+        {
+          "word": " situations.",
+          "start": 8.92,
+          "end": 9.92,
+          "prob": 0.9795814156532288
+        }
+      ]
+    },
+    {
+      "start": 10.32,
+      "end": 16.32,
+      "text": " For instance, during my internship, I successfully redesigned the backend system within two weeks,",
+      "words": [
+        {
+          "word": " For",
+          "start": 10.32,
+          "end": 10.52,
+          "prob": 0.9671606421470642
+        },
+        {
+          "word": " instance,",
+          "start": 10.52,
+          "end": 10.94,
+          "prob": 0.9931684732437134
+        },
+        {
+          "word": " during",
+          "start": 11.36,
+          "end": 11.5,
+          "prob": 0.9850853085517883
+        },
+        {
+          "word": " my",
+          "start": 11.5,
+          "end": 11.74,
+          "prob": 0.9916041493415833
+        },
+        {
+          "word": " internship,",
+          "start": 11.74,
+          "end": 12.28,
+          "prob": 0.9988018274307251
+        },
+        {
+          "word": " I",
+          "start": 12.6,
+          "end": 12.72,
+          "prob": 0.9878396391868591
+        },
+        {
+          "word": " successfully",
+          "start": 12.72,
+          "end": 13.56,
+          "prob": 0.9884861707687378
+        },
+        {
+          "word": " redesigned",
+          "start": 13.56,
+          "end": 14.3,
+          "prob": 0.989417314529419
+        },
+        {
+          "word": " the",
+          "start": 14.3,
+          "end": 14.48,
+          "prob": 0.8476094007492065
+        },
+        {
+          "word": " backend",
+          "start": 14.48,
+          "end": 14.72,
+          "prob": 0.15815597772598267
+        },
+        {
+          "word": " system",
+          "start": 14.72,
+          "end": 15.32,
+          "prob": 0.9795560836791992
+        },
+        {
+          "word": " within",
+          "start": 15.32,
+          "end": 15.7,
+          "prob": 0.9568203687667847
+        },
+        {
+          "word": " two",
+          "start": 15.7,
+          "end": 16.04,
+          "prob": 0.7664473652839661
+        },
+        {
+          "word": " weeks,",
+          "start": 16.04,
+          "end": 16.32,
+          "prob": 0.9989461302757263
+        }
+      ]
+    },
+    {
+      "start": 16.8,
+      "end": 20.32,
+      "text": " which strengthened my time management and problem solving skills.",
+      "words": [
+        {
+          "word": " which",
+          "start": 16.8,
+          "end": 17.08,
+          "prob": 0.9943100214004517
+        },
+        {
+          "word": " strengthened",
+          "start": 17.08,
+          "end": 17.72,
+          "prob": 0.9676680564880371
+        },
+        {
+          "word": " my",
+          "start": 17.72,
+          "end": 18.0,
+          "prob": 0.996335506439209
+        },
+        {
+          "word": " time",
+          "start": 18.0,
+          "end": 18.28,
+          "prob": 0.9930899739265442
+        },
+        {
+          "word": " management",
+          "start": 18.28,
+          "end": 18.84,
+          "prob": 0.9930925369262695
+        },
+        {
+          "word": " and",
+          "start": 18.84,
+          "end": 19.14,
+          "prob": 0.9916260242462158
+        },
+        {
+          "word": " problem",
+          "start": 19.14,
+          "end": 19.52,
+          "prob": 0.9146841764450073
+        },
+        {
+          "word": " solving",
+          "start": 19.52,
+          "end": 19.86,
+          "prob": 0.696322500705719
+        },
+        {
+          "word": " skills.",
+          "start": 19.86,
+          "end": 20.32,
+          "prob": 0.9282097220420837
+        }
+      ]
+    }
+  ],
+  "analysis": {
+    "speech_rate": {
+      "num_words": 35,
+      "duration_sec": 15.88,
+      "words_per_min_total": 132.24,
+      "words_per_min_speaking_only": 147.27
+    },
+    "pause_stats": {
+      "pause_count": 0,
+      "avg_pause_sec": 0,
+      "max_pause_sec": 0,
+      "pauses": []
+    },
+    "filler_stats": {
+      "filler_total": 0,
+      "filler_breakdown": {
+        "um": 0,
+        "uh": 0,
+        "like": 0,
+        "you know": 0,
+        "sort of": 0,
+        "kind of": 0,
+        "i mean": 0,
+        "ah": 0,
+        "erm": 0
+      }
+    },
+    "low_confidence": {
+      "word_count": 1,
+      "phrases": [
+        {
+          "text": " backend",
+          "start": 14.48,
+          "end": 14.72,
+          "avg_prob": 0.158
+        }
+      ]
+    },
+    "repetition_stats": {
+      "repetition_count": 0,
+      "repetitions": []
+    }
+  }
+}
