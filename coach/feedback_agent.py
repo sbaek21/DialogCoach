@@ -3,26 +3,39 @@ import json
 import os
 import sys
 from datetime import datetime
+from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from coach.scenarios import resolve_scenario, preset_choices
 
-SYSTEM_PROMPT = """
-You are DialogCoach, an expert conversational coach helping users improve their spoken dialogue.
+_ROOT = Path(__file__).resolve().parent.parent
+_PROMPTS_DIR = _ROOT / "prompts"
 
-You will receive a transcript, a conversation context, and delivery analysis features.
-Provide structured feedback in exactly these 4 sections:
 
-1. DELIVERY: Use the provided analysis features (WPM, fillers, pauses, repetitions,
-   low confidence words) to give specific, data-driven observations.
-2. LINGUISTIC QUALITY: Evaluate vocabulary, sentence structure, grammar, and clarity.
-3. COMMUNICATION EFFECTIVENESS: Assess whether tone and content fits the context.
-   Is it appropriate, confident, and engaging?
-4. IMPROVEMENT SUGGESTIONS: Rewrite 1-2 key sentences to be stronger and explain why.
+def load_prompt(filename: str) -> str:
+    path = _PROMPTS_DIR / filename
+    if not path.exists():
+        raise FileNotFoundError(f"Prompt file not found: {path}")
+    return path.read_text(encoding="utf-8").strip()
 
-Be specific, actionable, and encouraging.
-Reference exact phrases from the transcript when giving feedback.
-"""
+
+def build_system_prompt_single_turn() -> str:
+    """Use prompts/ files as the single source of truth (one-turn output)."""
+    judge = load_prompt("judge_prompt.md")
+    improve = load_prompt("improve_prompt.md")
+    return (
+        f"{judge}\n\n"
+        "---\n\n"
+        "# Improvement coaching (same reply — after the judge output)\n\n"
+        "After you complete the judge section above, continue **in the same response** "
+        "with improvement coaching that follows:\n\n"
+        f"{improve}\n"
+    )
+
+
+def ollama_model() -> str:
+    # Override: export OLLAMA_MODEL=... (and make sure it's pulled: `ollama pull ...`)
+    return os.environ.get("OLLAMA_MODEL", "llama3.1:8b")
 
 def select_context():
     choices = preset_choices()
@@ -38,32 +51,35 @@ def select_context():
     return scenario_text
 
 def build_user_message(transcript, context, analysis, turn, history=None):
-    analysis_str = json.dumps(analysis, indent=2)
-    message = f"""
-Context: {context}
-Turn {turn} transcript: {transcript}
+    analysis_str = json.dumps(analysis, indent=2, ensure_ascii=False)
+    message = f"""## Scenario
+{context}
 
-Delivery analysis:
+## Transcript (turn {turn})
+{transcript}
+
+## Delivery features
+```json
 {analysis_str}
+```
 """
     if history and turn > 1:
-        message += f"""
-Previous turn feedback:
-{history}
-
-Please evaluate the current transcript, reference the delivery analysis features,
-and compare to the previous attempt. Note what improved and what still needs work.
-"""
+        message += (
+            "\n## Prior turn feedback (for comparison)\n"
+            f"{history}\n\n"
+            "Compare this turn to the prior attempt: what improved, what regressed, "
+            "and what to focus on next.\n"
+        )
     else:
-        message += "\nPlease provide structured coaching feedback."
+        message += "\nFollow your system prompt output structure.\n"
     return message
 
 def get_feedback(transcript, context, analysis, history=None, turn=1):
     user_message = build_user_message(transcript, context, analysis, turn, history)
     response = ollama.chat(
-        model="llama3.1:8b",
+        model=ollama_model(),
         messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "system", "content": build_system_prompt_single_turn()},
             {"role": "user", "content": user_message}
         ]
     )
