@@ -1,13 +1,21 @@
-# ASR
-faster-whisper
+# DialogCoach — Python 3.10+ recommended
+#
+# Install: pip install -r requirements.txt
 
-# Audio recording
-sounddevice
-soundfile
-numpy
+# --- ASR & recording (asr/transcribe.py) ---
+faster-whisper>=1.0.0
+numpy>=1.24.0
+sounddevice>=0.4.6
+soundfile>=0.12.0
 
-# LLM
-ollama
+# --- API clients: Gemini/OpenAI-compatible & OpenRouter (coach/*, coach_agent.py) ---
+openai>=1.40.0
+python-dotenv>=1.0.0
 
-# UI (possibly)
-# gradio
+# --- Local LLM (coach/feedback_agent.py) ---
+ollama>=0.3.0
+
+# Optional UI (uncomment if used)
+# gradio>=4.0.0
+
+
