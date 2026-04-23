@@ -14,7 +14,6 @@ Whisper ASR runs locally (CPU); first run downloads the model.
 
 from __future__ import annotations
 
-import json
 import sys
 import traceback
 from pathlib import Path
@@ -39,6 +38,9 @@ from config import MODEL_NAME
 from feedback_agent_two_stage_api import improvement_coaching, judge_evaluation
 from scenarios import preset_choices, resolve_scenario
 
+# Fixed Whisper size for the UI (matches typical local ASR default).
+WHISPER_MODEL_SIZE = "small"
+
 
 def _scenario_text(preset: str, custom: str) -> str:
     custom = (custom or "").strip()
@@ -51,44 +53,25 @@ def run_coaching(
     audio_path: str | None,
     scenario_preset: str,
     custom_scenario: str,
-    whisper_size: str,
-) -> tuple[str, str, str, str, str]:
+) -> tuple[str, str, str, str]:
     if not audio_path:
-        return (
-            "No audio: record or upload a file.",
-            "",
-            "",
-            "",
-            "",
-        )
+        return ("No audio: record or upload a file.", "", "", "")
     path = str(audio_path).strip()
     if not path or not Path(path).is_file():
-        return ("Invalid audio file path.", "", "", "", "")
+        return ("Invalid audio file path.", "", "", "")
 
     try:
-        transcript, _segments, all_words = transcribe(path, model_size=whisper_size)
+        transcript, _segments, all_words = transcribe(path, model_size=WHISPER_MODEL_SIZE)
     except Exception as e:
-        return (
-            f"Transcribe error: {e}\n\n{traceback.format_exc()}",
-            "",
-            "",
-            "",
-            "",
-        )
+        return (f"Transcribe error: {e}\n\n{traceback.format_exc()}", "", "", "")
 
     if not (transcript or "").strip():
-        return ("Empty transcript (no speech detected?).", "", "", "", "")
+        return ("Empty transcript (no speech detected?).", "", "", "")
 
     try:
         analysis = analyze(transcript, all_words)
     except Exception as e:
-        return (
-            transcript,
-            f"Analysis error: {e}",
-            "",
-            "",
-            "",
-        )
+        return (transcript, f"**Analysis error:** {e}", "", "")
 
     context = _scenario_text(scenario_preset, custom_scenario)
     turn = 1
@@ -101,8 +84,7 @@ def run_coaching(
     except Exception as e:
         return (
             transcript,
-            json.dumps(analysis, indent=2, ensure_ascii=False),
-            f"Judge error: {e}\n\n{traceback.format_exc()}",
+            f"**Judge error:** {e}\n\n```\n{traceback.format_exc()}\n```",
             "",
             "",
         )
@@ -120,20 +102,18 @@ def run_coaching(
     except Exception as e:
         return (
             transcript,
-            json.dumps(analysis, indent=2, ensure_ascii=False),
             judge,
-            f"Improvement error: {e}\n\n{traceback.format_exc()}",
+            f"**Improvement error:** {e}\n\n```\n{traceback.format_exc()}\n```",
             "",
         )
 
-    analysis_str = json.dumps(analysis, indent=2, ensure_ascii=False)
     combined = (
         "## Judge\n\n"
         f"{judge}\n\n"
         "## Improvement\n\n"
         f"{improve}\n"
     )
-    return (transcript, analysis_str, judge, improve, combined)
+    return (transcript, judge, improve, combined)
 
 
 def build_app() -> gr.Blocks:
@@ -143,17 +123,11 @@ def build_app() -> gr.Blocks:
             "# DialogCoach\n"
             "Record or upload audio → Whisper transcription → **Judge** + **Improve** (Gemini API)."
         )
-        with gr.Row():
-            scenario = gr.Dropdown(
-                choices=scenario_keys,
-                value="coffee_chat",
-                label="Scenario",
-            )
-            whisper = gr.Dropdown(
-                choices=["tiny", "base", "small", "medium", "large-v3"],
-                value="small",
-                label="Whisper model",
-            )
+        scenario = gr.Dropdown(
+            choices=scenario_keys,
+            value="coffee_chat",
+            label="Scenario",
+        )
         custom = gr.Textbox(
             label="Custom scenario (optional, overrides dropdown if non-empty)",
             lines=2,
@@ -167,15 +141,14 @@ def build_app() -> gr.Blocks:
         run_btn = gr.Button("Transcribe & coach", variant="primary")
 
         out_tr = gr.Textbox(label="Transcript", lines=4)
-        out_an = gr.Textbox(label="Delivery features (JSON)", lines=8)
         out_ju = gr.Textbox(label="Judge", lines=12)
         out_im = gr.Textbox(label="Improvement", lines=12)
         out_all = gr.Markdown(label="Combined")
 
         run_btn.click(
             run_coaching,
-            inputs=[audio, scenario, custom, whisper],
-            outputs=[out_tr, out_an, out_ju, out_im, out_all],
+            inputs=[audio, scenario, custom],
+            outputs=[out_tr, out_ju, out_im, out_all],
         )
     return app
 
