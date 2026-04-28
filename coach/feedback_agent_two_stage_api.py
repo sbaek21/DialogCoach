@@ -43,6 +43,9 @@ def build_improve_system_prompt() -> str:
         "You will be given a 'Judge evaluation' section written by a separate evaluator. "
         "Use it as the primary basis for your coaching (cite its scores/snippets), and "
         "use the scenario/transcript/features only to ground rewrites and practice steps.\n"
+        "\n"
+        "Start directly with the coaching content (Level 1/2/3/4). "
+        "Do not add a generic greeting like 'Hello! I'm DialogCoach.'\n"
     )
 
 
@@ -65,9 +68,10 @@ def build_turn_payload(
     context: str,
     analysis: dict[str, Any],
     turn: int,
+    history: str | None = None,
 ) -> str:
     analysis_str = json.dumps(analysis, indent=2, ensure_ascii=False)
-    return f"""## Scenario
+    message = f"""## Scenario
 {context}
 
 ## Transcript (turn {turn})
@@ -78,6 +82,14 @@ def build_turn_payload(
 {analysis_str}
 ```
 """
+    if history and turn > 1:
+        message += (
+            "\n## Prior turn feedback (for comparison)\n"
+            f"{history}\n\n"
+            "Compare this turn to the prior attempt: what improved, what regressed, "
+            "and what to focus on next.\n"
+        )
+    return message
 
 
 def judge_evaluation(
@@ -87,11 +99,12 @@ def judge_evaluation(
     *,
     turn: int,
     model: str,
+    history: str | None = None,
 ) -> str:
     client = _gemini_client()
     messages: list[dict[str, Any]] = [
         {"role": "system", "content": build_judge_system_prompt()},
-        {"role": "user", "content": build_turn_payload(transcript, context, analysis, turn)},
+        {"role": "user", "content": build_turn_payload(transcript, context, analysis, turn, history)},
     ]
     r = client.chat.completions.create(model=model, messages=messages)
     return (r.choices[0].message.content or "").strip()
@@ -106,10 +119,11 @@ def improvement_coaching(
     model: str,
     judge_text: str,
     stream: bool = False,
+    history: str | None = None,
 ) -> str:
     client = _gemini_client()
     user_message = (
-        f"{build_turn_payload(transcript, context, analysis, turn)}\n"
+        f"{build_turn_payload(transcript, context, analysis, turn, history)}\n"
         "## Judge evaluation\n"
         f"{judge_text}\n"
     )
